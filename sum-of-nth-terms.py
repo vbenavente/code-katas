@@ -7,9 +7,9 @@ def series_sum(n):
         denom = 1
         num1 = 0
         num2 = 0
-        for i in range(1, n):
+        for i in range(0, n - 1):
             denom = denom + 3
             num1 = 1/denom
             total = 1 + num1 + num2
-            num2 = num1
+            num2 = num1 + num2
         return "%.2f" % total
