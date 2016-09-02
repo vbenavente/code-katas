@@ -15,6 +15,6 @@ TEST_SORT_CARDS_DATA = [
 
 
 @pytest.mark.parametrize('a_list, result', TEST_SORT_CARDS_DATA)
-def test_proper_parenthetics(a_list, result):
+def test_sort_cards(a_list, result):
     """Test sort cards method."""
     assert sort_cards(a_list) == result
