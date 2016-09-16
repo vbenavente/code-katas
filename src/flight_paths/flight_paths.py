@@ -77,11 +77,15 @@ def get_lat_lon(city):
 
 
 def get_path(start_city, end_city):
-    """Returns path and distance between two cities."""
+    """Returns path between two cities and the distance of the path."""
     flight_json = get_flight_json()
     flight_dict = create_flight_graph(flight_json)[0]
     path = find_path(flight_dict, start_city, end_city, path=[])
-    point1 = get_lat_lon(start_city)
-    point2 = get_lat_lon(end_city)
-    distance = calculate_distance(point1, point2)
-    return path, distance
+    total_distance = 0
+    for idx in range(len(path)):
+        if idx < len(path) - 1:
+            point1 = get_lat_lon(path[idx])
+            point2 = get_lat_lon(path[(idx + 1)])
+            distance = calculate_distance(point1, point2)
+            total_distance += distance
+    return path, total_distance
