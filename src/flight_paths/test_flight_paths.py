@@ -37,16 +37,14 @@ def test_find_path_city_not_in_flight_dict():
     assert path is None
 
 
-# def test_find_path_start_direct_flight_to_end():
-#     """Test a path between two cities is direct flight."""
-#     flight_json = flight_paths.get_flight_json()
-#     flight_dict = flight_paths.create_flight_graph(flight_json)[0]
-#     path = flight_paths.find_path(flight_dict, 'Boston', 'London', path=[])
-#     assert path == ['Boston', 'London']
-
-
 def test_calculate_distance():
     """Test calculate distance returns distance in miles from two lat_longs."""
     point1 = flight_paths.get_lat_lon('Boston')
     point2 = flight_paths.get_lat_lon('Seattle')
     assert flight_paths.calculate_distance(point1, point2) == 2488.919156778198
+
+
+def test_get_path_returns_tuple():
+    """Test function returns tuple with a path and a distance."""
+    result = flight_paths.get_path('Boston', 'London')
+    assert result == (['Boston', 'London'], 3275.367430733415)

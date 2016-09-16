@@ -57,8 +57,6 @@ def find_path(flight_dict, start_city, end_city, path=[]):
         cur_city = stack.pop()
         if cur_city not in flight_dict:
             return None
-        # if cur_city == end_city:
-        #     return path
         if cur_city not in path:
             path.append(cur_city)
             for city in flight_dict[cur_city]:
