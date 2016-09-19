@@ -26,3 +26,19 @@ def create_filtered_billionaire_list(bill_dict):
         if bill_dict[key][0] > 0 and bill_dict[key][0] < 80:
             filtered_list.append((key, bill_dict[key][0], bill_dict[key][1], bill_dict[key][2]))
     return filtered_list
+
+
+def scrooge_mcduck_and_richie_rich(filtered_list):
+    """Return oldest/youngest billionaire under 80, by name, net worth, industry."""
+    scrooge = filtered_list[0][1]
+    richie = filtered_list[0][1]
+    for idx in range(len(filtered_list)):
+        if filtered_list[idx][1] > scrooge:
+            oldest = filtered_list[idx]
+            scrooge = filtered_list[idx][1]
+        if filtered_list[idx][1] < richie:
+            youngest = filtered_list[idx]
+            richie = filtered_list[idx][1]
+    oldest = (oldest[0], oldest[2], oldest[3])
+    youngest = (youngest[0], youngest[2], youngest[3])
+    return oldest, youngest
