@@ -14,3 +14,9 @@
 ### Resources include the following links  
 - https://www.python.org/doc/essays/graphs/  
 - https://www.linkedin.com/pulse/graphs-python-dfs-henrique-gabriel-gularte-pereira  
+
+## Forbes Top 40  
+- Forbes Top 40 returns the oldest and youngest billionaire from the Forbes Top 40  
+- Name, net worth and industry will be returned  
+- oldest is the oldest under 80  
+- youngest is of valid age due to errors in json file downloaded  
