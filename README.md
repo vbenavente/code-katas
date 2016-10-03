@@ -20,3 +20,11 @@
 - Name, net worth and industry will be returned  
 - oldest is the oldest under 80  
 - youngest is of valid age due to errors in json file downloaded  
+
+## Autocomplete  
+- A callable Python class that implements autocomplete functionality  
+- Class takes a list of words as a vocabulary as an argument on initialization  
+- Accepts max_completions argument, controls max suggested completions for string  
+- Max completions argument defaults to 5  
+- Input to the call method for the class will be string user has typed  
+- No completions available returns an empty list  
