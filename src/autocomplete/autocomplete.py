@@ -16,19 +16,37 @@ class AutoCompleter(object):
         if not isinstance(token, str):
             return suggested_words
         start = self.vocabulary.root
+        token = ""
         completions = 0
         while completions < self.max_completions:
-            try:
-                start = start[token[completions]]
-                for k, v in start.items():
-                    if k != '#':
-                        print(k)
-                        suggested_words.append(start.popitem()[0])
-                        completions += 1
-                        if len(v) > 0:
-                            start = start[token[completions]]
-                            suggested_words.append(start.popitem()[0])
-            except KeyError:
-                return suggested_words
-
+            while True:
+                if start.keys()[0] != '#':
+                    start, token = get_word(start, token)
+                else:
+                    suggested_words.append(token)
+                    break
             return suggested_words
+            # try:
+            #     start = start[token[completions]]
+            #     for k, v in start.items():
+            #         if k != '#':
+            #             token += k
+            #             # while len(start):
+            #             #     my_deque.append(start.popitem())
+            #             start = start.popitem()
+            #             suggested_words.extend(token)
+            #             completions += 1
+            #             if len(v) > 0:
+            #                 start = start[token[completions]]
+            #                 suggested_words.append(start.popitem()[0])
+            # except KeyError:
+            #     return suggested_words
+            #
+            # return suggested_words
+
+
+def get_word(start, token):
+    k = start.keys()[0]
+    token += k
+    start = start[k]
+    return start, token
