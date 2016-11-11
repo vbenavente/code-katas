@@ -16,7 +16,7 @@ class AutoCompleter(object):
         if not isinstance(token, str):
             return suggested_words
         start = self.vocabulary.root
-        token = ""
+        token = token
         completions = 0
         while completions < self.max_completions:
             while True:
